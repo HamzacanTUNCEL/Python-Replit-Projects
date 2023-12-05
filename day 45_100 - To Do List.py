@@ -28,7 +28,7 @@ def addItem():
 
 def viewList():
     option = input(
-        "Press 1 to view all items\nPress 2 to view items with a specific priority"
+        "Press 1 to view all items\nPress 2 to view items with a specific priority\n"
     )
     if option == "1":
         print()
@@ -58,20 +58,20 @@ def viewList():
 
 
 def removeItem():
-    item = input("Enter item to remove: ")
+    priority = input("Enter item's priority to remove: ")
     item_found = False
 
     for row in toDoList:
         for key, value in row.items():
-            if value == item:
+            if row["Priority"] == priority:
                 toDoList.remove(row)
                 print("Item removed from list")
                 item_found = True
                 Pause()
                 break
-        else:
-            continue
-        break
+            else:
+                continue
+            break
     if not item_found:
         print("Item not found in any row")
 
