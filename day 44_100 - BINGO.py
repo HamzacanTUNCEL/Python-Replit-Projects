@@ -86,14 +86,20 @@ def check_for_bingo():
         for b in range(3):
             if bingo_card[a][b] == "X":
                 cross_count += 1
+    return cross_count
 
 
 # Fill the bingo card
 fill_bingo_card()
 while True:
-    user_number = int(input("Enter a number: "))
+    user_number = input("Enter a number: ")
+    if user_number.isalnum():
+        user_number= int(user_number)
+    else:
+        continue
     check_number_in_card(user_number)
     check_for_bingo()
+    print_bingo_card()
     print(cross_count)
     wait_for_input()
     if cross_count == 8:
