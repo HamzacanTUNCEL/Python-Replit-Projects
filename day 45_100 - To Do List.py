@@ -4,11 +4,9 @@ import platform
 
 toDoList = []
 
-
 def Pause():
     print("Press Enter to continue...")
     input()
-
 
 def Clear():
     time.sleep(1)
@@ -17,14 +15,12 @@ def Clear():
     elif platform.system() == "Windows":
         os.system('cls')
 
-
 def addItem():
     Name = input("Enter the name of the item: ")
     Date = input("Enter the due date of the item: ")
     Priority = input("Enter the priority of the item: ")
     row = {"Name": Name, "Date": Date, "Priority": Priority}
     toDoList.append(row)
-
 
 def viewList():
     option = input(
@@ -56,7 +52,6 @@ def viewList():
                         print(key, value.capitalize(), sep=": ", end="\n")
         Pause()
 
-
 def removeItem():
     priority = input("Enter item's priority to remove: ")
     item_found = False
@@ -74,7 +69,6 @@ def removeItem():
             break
     if not item_found:
         print("Item not found in any row")
-
 
 def editItem():
     option = input(
@@ -98,13 +92,11 @@ def editItem():
                     continue
                 break    
 
-
 def edit(name):
     item = input("Enter item to edit: ")
     for row in toDoList:
         if row[name] == item:
             row[name] = input(f"Enter new {name}: ")
-
 
 while True:
     menu = input("1. Add item\n2. View list\n3. Remove item\n4. Edit item\n")
