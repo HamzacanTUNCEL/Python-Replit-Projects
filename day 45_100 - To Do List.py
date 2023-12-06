@@ -16,9 +16,9 @@ def Clear():
         os.system('cls')
 
 def addItem():
-    Name = input("Enter the name of the item: ")
-    Date = input("Enter the due date of the item: ")
-    Priority = input("Enter the priority of the item: ")
+    Name = input("Enter the name of the item: ").strip().capitalize()
+    Date = input("Enter the due date of the item: ").strip().capitalize()
+    Priority = input("Enter the priority of the item: ").strip().capitalize()
     row = {"Name": Name, "Date": Date, "Priority": Priority}
     toDoList.append(row)
 
@@ -32,10 +32,10 @@ def viewList():
             counter = 0
             for key, value in row.items():
                 if counter < 2:
-                    print(key, value.capitalize(), sep=": ", end=" ")
+                    print(key, value, sep=": ", end=" \t")
                     counter += 1
                 else:
-                    print(key, value.capitalize(), sep=": ", end="\n")
+                    print(key, value, sep=": ", end="\n")
 
         print()
         Pause()
@@ -96,7 +96,7 @@ def edit(name):
     item = input("Enter item to edit: ")
     for row in toDoList:
         if row[name] == item:
-            row[name] = input(f"Enter new {name}: ")
+            row[name] = input(f"Enter new {name}: ").strip().capitalize()
 
 while True:
     menu = input("1. Add item\n2. View list\n3. Remove item\n4. Edit item\n")
