@@ -3,9 +3,9 @@ import platform
 import random
 
 # Initialize the bingo card with 'BINGO' in the center
-bingo_card = [[None,    None,   None],
-              [None,   "BINGO", None],
-              [None,    None,   None]]
+bingo_card = [[None, None, None],
+              [None, "BINGO", None],
+              [None, None, None]]
 
 generated_numbers = []
 
@@ -80,7 +80,6 @@ def check_number_in_card(user_number_input):
 
 # Check if there's a bingo
 def check_for_bingo():
-    global cross_count
     cross_count = 0
     for a in range(3):
         for b in range(3):
@@ -94,11 +93,11 @@ fill_bingo_card()
 while True:
     user_number = input("Enter a number: ")
     if user_number.isalnum():
-        user_number= int(user_number)
+        user_number = int(user_number)
     else:
         continue
     check_number_in_card(user_number)
-    check_for_bingo()
+    cross_count=check_for_bingo()
     print_bingo_card()
     print(cross_count)
     wait_for_input()
