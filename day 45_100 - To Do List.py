@@ -88,12 +88,15 @@ def editItem():
         elif option_alt == "3":
             edit("Priority")
     elif option == "2":
-        item = input("Enter item to edit: ")
+        item = input("Enter item's Priority to edit: ")
         for row in toDoList:
             for key, value in row.items():
-                if item == value:
+                if row["Priority"] == item:
                     for key in row:
                         row[key] = input(f"Enter new {key}: ")
+                else:
+                    continue
+                break    
 
 
 def edit(name):
