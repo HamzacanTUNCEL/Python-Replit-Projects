@@ -5,8 +5,10 @@ import platform
 toDoList = []
 
 def Pause():
-    print("Press Enter to continue...")
-    input()
+    if (platform.system() == "Windows"):
+        os.system("pause")
+    else:
+        input('Press Enter to continue...')
 
 def Clear():
     time.sleep(1)
