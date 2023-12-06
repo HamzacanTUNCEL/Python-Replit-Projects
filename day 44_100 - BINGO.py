@@ -3,9 +3,9 @@ import platform
 import random
 
 # Initialize the bingo card with 'BINGO' in the center
-bingo_card = [[None, None, None],
+bingo_card = [[None, None,    None],
               [None, "BINGO", None],
-              [None, None, None]]
+              [None, None,    None]]
 
 generated_numbers = []
 
